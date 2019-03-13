@@ -5,11 +5,15 @@
   "main": "index.js",
   "dependencies": {
     "cypress": "^3.1.5",
-    "puppeteer": "^1.12.2"
+    "puppeteer": "^1.12.2",
+    "cucumber": "^5.0.3",
+    "cucumber-pretty": "^1.5.0",
+    "chai": "^4.2.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "npm run test:cypress",
-    "test:cypress": "cypress run --record --key cc6808e9-c5b6-4639-a0b7-5df6262b50d6 --headed"
+    "test:cypress": "cypress run --record --key cc6808e9-c5b6-4639-a0b7-5df6262b50d6 --headed",
+    "test:bdd": "node ./node_modules/cucumber/bin/cucumber-js  cucumber/**/*.feature -f node_modules/cucumber-pretty"
   }
 }
