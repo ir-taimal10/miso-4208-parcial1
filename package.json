@@ -1,0 +1,15 @@
+{
+  "name": "miso-4208-parcial-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cypress": "^3.1.5",
+    "puppeteer": "^1.12.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm run test:cypress",
+    "test:cypress": "cypress run --record --key cc6808e9-c5b6-4639-a0b7-5df6262b50d6 --headed"
+  }
+}
