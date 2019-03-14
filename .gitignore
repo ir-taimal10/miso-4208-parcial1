@@ -285,3 +285,5 @@ Thumbs.db
 **/*screenshot.png
 **/cypress/videos/**
 **/cypress/screenshots/**/**
+
+**/screenshots/*.png
