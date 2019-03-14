@@ -1,11 +1,11 @@
 const {expect} = require('chai');
 const {Given, When, Then} = require('cucumber');
 const puppeteer = require('puppeteer');
-const pathScreenShots = './screenshots/login';
+const pathScreenShots = './screenshots/register';
 
 global.testContext = global.testContext || {};
 
-Given('I write the url of portal {string} in  the browser',
+Given('I go to the url of register {string}',
     {timeout: 20 * 1000}, async (portalUrl) => {
         const width = 1280;
         const height = 1200;
@@ -31,19 +31,33 @@ Given('I write the url of portal {string} in  the browser',
         await global.testContext.page.screenshot({path: `${global.testContext.screenshotPath}-step0.png`});
     });
 
-When('I write my credentials, login : {string}  and password: {string} and click in login button',
-    {timeout: 20 * 1000}, async (userLogin, userPassword) => {
+When('I write my register data, userName: {string}, email: {string} and  password: {string}',
+    {timeout: 20 * 1000}, async (userName, email, password) => {
         await expect(await global.testContext.page.waitForSelector(".login_singup_form"));
-        await global.testContext.page.type('.login_singup_form .input_email', userLogin);
-        await global.testContext.page.type('.login_singup_form .input_password', userPassword);
-        await global.testContext.page.click('.login_singup_form .submit_btn');
+        await global.testContext.page.type('#sign_up_form .input_name', userName);
+        await global.testContext.page.type('#sign_up_form .input_email', email);
+        await global.testContext.page.type('#sign_up_form .input_password', password);
         await global.testContext.page.screenshot({path: `${global.testContext.screenshotPath}-step1.png`});
     });
 
-Then('I should view the redirection page with content: {string}', {timeout: 20 * 1000}, async (redirectPortalContent) => {
+When('I accept terms of service',
+    {timeout: 20 * 1000}, async () => {
+        await expect(await global.testContext.page.waitForSelector("#accept_terms"));
+        await global.testContext.page.click('#accept_terms');
+        await global.testContext.page.screenshot({path: `${global.testContext.screenshotPath}-step2.png`});
+    });
+
+When('I click in submit button',
+    {timeout: 20 * 1000}, async () => {
+        await expect(await global.testContext.page.waitForSelector(".submit_btn"));
+        await global.testContext.page.click('.submit_btn');
+        await global.testContext.page.screenshot({path: `${global.testContext.screenshotPath}-step3.png`});
+    });
+
+Then('I should view the result page with content: {string}', {timeout: 20 * 1000}, async (redirectPortalContent) => {
     await expect(await global.testContext.page.waitForSelector("body"));
     const content = await global.testContext.page.content();
     expect(content).to.have.string(redirectPortalContent);
-    await global.testContext.page.screenshot({path: `${global.testContext.screenshotPath}-step2.png`});
+    await global.testContext.page.screenshot({path: `${global.testContext.screenshotPath}-step4.png`});
     await global.testContext.browser.close();
 });
