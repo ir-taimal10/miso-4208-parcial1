@@ -76,10 +76,9 @@ When('I submit task creation',
 
 Then('I should view {string} task in list',
     {timeout: 20 * 1000}, async (taskDescription) => {
-        await expect(await global.testContext.page.waitForSelector(".items .task_item"));
-        const taskItems = await global.testContext.page.$$('.items .task_item');
-        const content = await global.testContext.page.content();
-        expect(content).to.have.string(taskDescription);
+        await expect(await global.testContext.page.waitForSelector(".section_day .items"));
+        const taskItems = await global.testContext.page.evaluate(() => document.querySelector('.section_day .items').textContent);
+        expect(taskItems).to.have.string(taskDescription);
         await global.testContext.page.screenshot({path: `${global.testContext.screenshotPath}-step5.png`});
         await global.testContext.browser.close();
     });
