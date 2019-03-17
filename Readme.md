@@ -11,7 +11,7 @@ Las presentes pruebas se van a realizar a nivel de pruebas de aceptación, media
 ### Diagrama de navegación
 
 <p align="center">
-  <img src="navegación.PNG" width="400" alt="accessibility text">
+  <img src="navegación.PNG" width="600" alt="accessibility text">
 </p>
 
 ### Demo de pruebas ejecutandose
@@ -27,3 +27,7 @@ Establecer un conjunto de pruebas automatizadas que permita identificar los efec
 Las presentes pruebas se enfocan en los aspectos funcionales de la aplicación.
 
 ### Diagrama de navegación.
+<p align="center">
+  <img src="AntenaPodcastNavegación.PNG" width="600" alt="accessibility text">
+</p>
+
