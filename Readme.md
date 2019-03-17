@@ -1,3 +1,5 @@
+## Estrategia de pruebas - Todoist.com
+
 ### Objetivo general.
 Establecer un inventario de estados de la aplicación Todoist.com a la version de escritorio teniendo en cuenta la mayor cantidad posible de funcionalidades relevante en la versión actual.
 ### Enfoque de las pruebas.
@@ -14,3 +16,14 @@ Las presentes pruebas se van a realizar a nivel de pruebas de aceptación, media
 
 ### Demo de pruebas ejecutandose
 ![](Todoist.com.gif)
+
+
+## Estrategia de pruebas - Antena Podcast
+
+### Objetivo general.
+Establecer un conjunto de pruebas automatizadas que permita identificar los efectos de borde que puedan introducirse en modificaciones del código debido a refactors de la aplicación
+
+### Enfoque de las pruebas.
+Las presentes pruebas se enfocan en los aspectos funcionales de la aplicación.
+
+### Diagrama de navegación.
